@@ -1,15 +1,33 @@
 {
-  "name": "vue-demo-box",
+  "name": "@laomao800/vue-demo-box",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name vue-demo-box src/index.js",
+    "docs:build": "vuepress build docs",
+    "docs:serve": "vuepress dev docs",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+  "main": "dist/vue-demo-box.common.js",
+  "files": [
+    "dist",
+    "types.d.ts"
+  ],
+  "bugs": {
+    "url": "https://github.com/laomao800/vue-demo-box/issues"
+  },
+  "homepage": "https://github.com/laomao800/vue-demo-box",
+  "keywords": [
+    "vuepress",
+    "demo"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laomao800/vue-demo-box.git"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
@@ -17,12 +35,17 @@
     "@vue/cli-service": "^3.11.0",
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.1",
+    "core-js": "^2.6.5",
+    "element-ui": "^2.12.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
+    "execa": "^2.0.4",
+    "inquirer": "^7.0.0",
     "prettier": "^1.18.2",
-    "vue-template-compiler": "^2.6.10"
+    "semver": "^6.3.0",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.1.0"
   }
 }
