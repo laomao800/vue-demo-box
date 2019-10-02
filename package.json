@@ -6,6 +6,7 @@
     "build:lib": "vue-cli-service build --target lib --name vue-demo-box src/index.js",
     "docs:build": "vuepress build docs",
     "docs:serve": "vuepress dev docs",
+    "release": "node scripts/release.js",
     "lint": "vue-cli-service lint"
   },
   "main": "dist/vue-demo-box.common.js",
