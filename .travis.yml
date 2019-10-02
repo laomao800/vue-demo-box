@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+  - node
+
+script:
+  - npm run test
+
+deploy:
+  - provider: pages
+    local-dir: docs/.vuepress/dist
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    on:
+      branch: master
+  - provider: npm
+    email: laomao800@gmail.com
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
+      repo: laomao800/vue-demo-box
