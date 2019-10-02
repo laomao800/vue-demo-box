@@ -1,11 +1,10 @@
 # vue-demo-box
 
-<!-- markdownlint-disable MD033 -->
-
 vue-demo-box provides a container component that presents both the demo and the code. For more demonstrations, check out the [Example](./example).
 
 Recommended to use with [Vuepress import code snippets](https://vuepress.vuejs.org/guide/markdown.html#import-code-snippets) to make it easier to reuse the code to create a presentation:
 
+<!-- markdownlint-disable MD033 -->
 <img src="./docs/.vuepress/public/preview.png" alt="vue-demo-box preview" style="width:80%;box-shadow:#ddd 0 0 10px;" />
 
 ## Install
