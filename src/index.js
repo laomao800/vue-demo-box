@@ -1,6 +1,6 @@
-import DemoBox from './DemoBox'
+import DemoBox from './DemoBox.vue'
 
-DemoBox.install = function(Vue, options = {}) {
+DemoBox.install = function(Vue, options) {
   Vue.component(DemoBox.name, DemoBox)
   Vue.prototype.$DEMO_BOX = options
 }

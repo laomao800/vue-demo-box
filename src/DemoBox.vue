@@ -79,7 +79,7 @@ export default {
 
   computed: {
     globalConfig() {
-      return this.$DEMO_BOX
+      return this.$DEMO_BOX || {}
     },
     finalRes() {
       // prettier-ignore
