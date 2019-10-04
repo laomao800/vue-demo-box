@@ -10,7 +10,7 @@ vue-demo-box 为提供一个同时展示实际效果以及代码的容器组件�
 
 建议配合 [Vuepress 引入代码段](https://vuepress.vuejs.org/zh/guide/markdown.html#%E5%AF%BC%E5%85%A5%E4%BB%A3%E7%A0%81%E6%AE%B5) 功能使用，可轻松复用代码建立演示效果：
 
-<img :src="$withBase('/preview.png')" alt="vue-demo-box preview" style="width:80%;box-shadow:#ddd 0 0 10px;" />
+<img :src="$withBase('/preview.png')" alt="vue-demo-box preview" style="width:70%;box-shadow:#ddd 0 0 10px;" />
 
 ## 安装
 
@@ -26,13 +26,15 @@ npm install --save-dev @laomao800/vue-demo-box
 
 ### Props
 
-| prop     | type    | default     | description                |
-| -------- | ------- | ----------- | -------------------------- |
-| title    | String  | `undefined` | demo 标题                  |
-| jsfiddle | Boolean | `true`      | 是否显示 jsfiddle 跳转按钮 |
-| codepen  | Boolean | `true`      | 是否显示 codepen 跳转按钮  |
-| jsRes    | Array   | `[]`        | 外部 js 文件地址           |
-| cssRes   | Array   | `[]`        | 外部 css 文件地址          |
+| prop       | type            | default     | description                |
+| ---------- | --------------- | ----------- | -------------------------- |
+| title      | String          | `undefined` | demo 标题                  |
+| jsfiddle   | Boolean         | `true`      | 是否显示 jsfiddle 跳转按钮 |
+| codepen    | Boolean         | `true`      | 是否显示 codepen 跳转按钮  |
+| jsRes      | Array           | `[]`        | 外部 js 文件地址           |
+| cssRes     | Array           | `[]`        | 外部 css 文件地址          |
+| horizon    | Boolean         | `false`     | 水平布局                   |
+| codeHeight | Number / String | -           | 代码区 max-height          |
 
 ::: tip
 

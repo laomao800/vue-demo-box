@@ -10,7 +10,7 @@ vue-demo-box provides a container component that presents both the demo and the 
 
 Recommended to use with [Vuepress import code snippets](https://vuepress.vuejs.org/guide/markdown.html#import-code-snippets) to make it easier to reuse the code to create a presentation:
 
-<img :src="$withBase('/preview.png')" alt="vue-demo-box preview" style="width:80%;box-shadow:#ddd 0 0 10px;" />
+<img :src="$withBase('/preview.png')" alt="vue-demo-box preview" style="width:70%;box-shadow:#ddd 0 0 10px;" />
 
 ## Install
 
@@ -26,13 +26,15 @@ npm install --save-dev @laomao800/vue-demo-box
 
 ### Props
 
-| prop     | type    | default     | description                      |
-| -------- | ------- | ----------- | -------------------------------- |
-| title    | String  | `undefined` | demo block title                 |
-| jsfiddle | Boolean | `true`      | whether shows jsfiddle link icon |
-| codepen  | Boolean | `true`      | whether shows codepen link icon  |
-| jsRes    | Array   | `[]`        | external js resources links      |
-| cssRes   | Array   | `[]`        | external css resources links     |
+| prop | type | default | description |
+| --- | --- | --- | --- |
+| title | String | `undefined` | demo block title |
+| jsfiddle | Boolean | `true` | whether shows jsfiddle link icon |
+| codepen | Boolean | `true` | whether shows codepen link icon |
+| jsRes | Array | `[]` | external js resources links |
+| cssRes | Array | `[]` | external css resources links |
+| horizon | Boolean | `false` | horizon layout |
+| codeHeight | Number / String | - | code area max-height |
 
 ::: tip
 

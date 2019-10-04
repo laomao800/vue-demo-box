@@ -38,7 +38,14 @@
           @click="expand = !expand"
         />
       </div>
-      <div v-if="$slots.code" v-show="expand || horizon" class="db__code">
+      <div
+        v-if="$slots.code"
+        v-show="expand || horizon"
+        :style="{
+          height: _codeHeight
+        }"
+        class="db__code"
+      >
         <slot name="code" />
       </div>
     </div>
@@ -48,6 +55,7 @@
 <style src="./style.css"></style>
 
 <script>
+import parseSize from '@laomao800/parse-size-with-unit'
 import { getCodeSlice } from './utils/helper'
 import { goJsfiddle, goCodepen } from './utils/platform'
 
@@ -77,6 +85,9 @@ export default {
     horizon: {
       type: Boolean,
       default: false
+    },
+    codeHeight: {
+      type: [String, Number]
     }
   },
 
@@ -113,6 +124,9 @@ export default {
         jsfiddle: jsfiddle === false ? false : this.jsfiddle,
         codepen: codepen === false ? false : this.codepen
       }
+    },
+    _codeHeight() {
+      return parseSize(this.codeHeight)
     }
   },
 
