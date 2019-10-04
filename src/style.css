@@ -74,17 +74,11 @@
   display: none;
   overflow: auto;
 }
-.db__code > * {
-  height: 100%;
-}
 .db__code div[class*='language-'] {
   border-radius: 0;
-  height: 100%;
 }
 .db__code div[class*='language-'] pre[class*='language-'] {
   margin: 0;
-  box-sizing: border-box;
-  height: 100%;
 }
 
 .db__wrapper--expand .db__actions {
