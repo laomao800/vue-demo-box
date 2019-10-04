@@ -1,13 +1,23 @@
 <template>
-  <div class="db__wrapper" :class="{ 'db__wrapper--expand': expand }">
-    <div class="db__demo">
-      <slot name="demo" />
-    </div>
-    <div class="db__meta">
-      <div v-if="title" class="db__title">{{ title }}</div>
-      <div v-if="$slots.default" class="db__description">
-        <slot />
+  <div
+    class="db__wrapper"
+    :class="{
+      'db__wrapper--expand': expand,
+      'db__wrapper--horizon': this.horizon
+    }"
+  >
+    <div class="db__demo-content">
+      <div class="db__demo">
+        <slot name="demo" />
       </div>
+      <div v-if="title || $slots.default" class="db__meta">
+        <div v-if="title" class="db__title">{{ title }}</div>
+        <div v-if="$slots.default" class="db__description">
+          <slot />
+        </div>
+      </div>
+    </div>
+    <div class="db__code-content">
       <div class="db__actions">
         <div
           v-if="finalPlatform.jsfiddle"
@@ -28,9 +38,9 @@
           @click="expand = !expand"
         />
       </div>
-    </div>
-    <div v-if="$slots.code" v-show="expand" class="db__code">
-      <slot name="code" />
+      <div v-if="$slots.code" v-show="expand || horizon" class="db__code">
+        <slot name="code" />
+      </div>
     </div>
   </div>
 </template>
@@ -63,6 +73,10 @@ export default {
     cssRes: {
       type: Array,
       default: () => []
+    },
+    horizon: {
+      type: Boolean,
+      default: false
     }
   },
 
