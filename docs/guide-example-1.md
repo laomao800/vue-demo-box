@@ -4,10 +4,10 @@ To let users interact with your app, we can use the v-on directive to attach eve
 
 <reverse-message slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 <<< docs/.vuepress/components/reverse-message.vue
 
-</div>
+</template>
 
 </demo-box>

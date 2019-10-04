@@ -11,7 +11,7 @@
 
 <element-input-number slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 ```vue
 <template>
@@ -34,6 +34,6 @@ export default {
 </script>
 ```
 
-</div>
+</template>
 
 </demo-box>

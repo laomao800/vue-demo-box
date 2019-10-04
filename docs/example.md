@@ -1,10 +1,11 @@
 # Example
 
 <!-- markdownlint-disable MD033 -->
+<style>.db__wrapper { margin-top: 16px; }</style>
 
 ## Handling User Input
 
-<demo-box title="Handling User Input" :js-res="['//unpkg.com/vue/dist/vue.js']">
+<demo-box title="Handling User Input" :js-res="['//unpkg.com/vue/dist/vue.js']" horizon code-height="300">
 
 > From Vue.js documentation [Handling User Input](https://vuejs.org/v2/guide/index.html#handling-user-input)
 
@@ -12,11 +13,11 @@ To let users interact with your app, we can use the v-on directive to attach eve
 
 <reverse-message slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 <<< docs/.vuepress/components/reverse-message.vue
 
-</div>
+</template>
 
 </demo-box>
 
@@ -37,7 +38,7 @@ Bind a variable to `v-model` in `<el-input-number>` element and you are set.
 
 <element-input-number slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 ```vue
 <template>
@@ -60,6 +61,6 @@ export default {
 </script>
 ```
 
-</div>
+</template>
 
 </demo-box>

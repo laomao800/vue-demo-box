@@ -11,7 +11,7 @@ Bind a variable to `v-model` in `<el-input-number>` element and you are set.
 
 <element-input-number slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 ```vue
 <template>
@@ -34,6 +34,6 @@ export default {
 </script>
 ```
 
-</div>
+</template>
 
 </demo-box>

@@ -4,10 +4,10 @@
 
 <reverse-message slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 <<< docs/.vuepress/components/reverse-message.vue
 
-</div>
+</template>
 
 </demo-box>

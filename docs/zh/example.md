@@ -1,10 +1,11 @@
 # 效果演示
 
 <!-- markdownlint-disable MD033 -->
+<style>.db__wrapper { margin-top: 16px; }</style>
 
 ## 处理用户输入
 
-<demo-box title="处理用户输入" :js-res="['//unpkg.com/vue/dist/vue.js']">
+<demo-box title="处理用户输入" :js-res="['//unpkg.com/vue/dist/vue.js']" horizon code-height="300">
 
 > 来自 Vue.js 官方文档 [处理用户输入](https://cn.vuejs.org/v2/guide/#%E5%A4%84%E7%90%86%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5)
 
@@ -12,11 +13,11 @@
 
 <reverse-message slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 <<< docs/.vuepress/components/reverse-message.vue
 
-</div>
+</template>
 
 </demo-box>
 
@@ -37,7 +38,7 @@
 
 <element-input-number slot="demo" />
 
-<div slot="code">
+<template slot="code">
 
 ```vue
 <template>
@@ -60,6 +61,6 @@ export default {
 </script>
 ```
 
-</div>
+</template>
 
 </demo-box>
