@@ -46,7 +46,8 @@
     "url": "https://github.com/laomao800/vue-demo-box/issues"
   },
   "files": [
-    "dist"
+    "dist",
+    "types.d.ts"
   ],
   "homepage": "https://github.com/laomao800/vue-demo-box",
   "keywords": [
@@ -55,6 +56,7 @@
   ],
   "license": "MIT",
   "main": "dist/vue-demo-box.common.js",
+  "types": "types.d.ts",
   "publishConfig": {
     "access": "public"
   },
