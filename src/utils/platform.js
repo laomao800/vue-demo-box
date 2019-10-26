@@ -1,10 +1,18 @@
+function _getBrowserRunableJS(script) {
+  const code = (script || '')
+    .replace(/export\s+default\s*/, 'var Main = ')
+    .trim()
+  return code
+    ? `${code}\n\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')`
+    : "new Vue().$mount('#app')"
+}
+
 /**
  * https://docs.jsfiddle.net/api/display-a-fiddle-from-post
  */
 export function goJsfiddle({ html, script, style }, { jsRes, cssRes }) {
   const htmlTpl = `<div id="app">\n${html}\n</div>`
-  const vmCode = script.replace(/export\s+default\s*/, '')
-  const jsTpl = `var Ctor = Vue.extend(${vmCode})\nnew Ctor().$mount('#app')`
+  const jsTpl = _getBrowserRunableJS(script)
   const resources = [...cssRes, ...getJsResFiles(jsRes)].join(',')
   submitForm({
     url: 'https://jsfiddle.net/api/post/library/pure/',
@@ -23,8 +31,7 @@ export function goJsfiddle({ html, script, style }, { jsRes, cssRes }) {
  */
 export function goCodepen({ html, script, style }, { jsRes, cssRes }) {
   const htmlTpl = `<div id="app">\n${html}\n</div>`
-  const vmCode = script.replace(/export\s+default\s*/, '')
-  const jsTpl = `var Ctor = Vue.extend(${vmCode})\nnew Ctor().$mount('#app')`
+  const jsTpl = _getBrowserRunableJS(script)
   const data = {
     html: htmlTpl,
     js: jsTpl,
