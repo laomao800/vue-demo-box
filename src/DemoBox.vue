@@ -52,8 +52,6 @@
   </div>
 </template>
 
-<style src="./style.css"></style>
-
 <script>
 import parseSize from '@laomao800/parse-size-with-unit'
 import { getCodeSlice } from './utils/helper'
@@ -107,15 +105,11 @@ export default {
       return this.$DEMO_BOX || {}
     },
     finalRes() {
-      // prettier-ignore
-      const globalJsRes = (this.globalConfig.jsRes || []).filter(res => typeof res === 'string')
-      const validJsRes = this.jsRes.filter(res => typeof res === 'string')
-      // prettier-ignore
-      const globalCssRes = (this.globalConfig.CssRes || []).filter(res => typeof res === 'string')
-      const validCssRes = this.cssRes.filter(res => typeof res === 'string')
+      const globalJsRes = this.globalConfig.jsRes || []
+      const globalCssRes = this.globalConfig.cssRes || []
       return {
-        jsRes: Array.from(new Set([...globalJsRes, ...validJsRes])),
-        cssRes: Array.from(new Set([...globalCssRes, ...validCssRes]))
+        jsRes: Array.from(new Set([...globalJsRes, ...this.jsRes])),
+        cssRes: Array.from(new Set([...globalCssRes, ...this.cssRes]))
       }
     },
     finalPlatform() {
@@ -155,3 +149,5 @@ export default {
   }
 }
 </script>
+
+<style src="./style.css"></style>

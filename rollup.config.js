@@ -1,4 +1,4 @@
-import resolve from 'rollup-plugin-node-resolve'
+import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 import buble from 'rollup-plugin-buble'
@@ -16,7 +16,7 @@ const banner =
 const commonConfig = {
   input: 'src/index.js',
   plugins: [
-    resolve(),
+    nodeResolve(),
     commonjs(),
     vue({
       style: {

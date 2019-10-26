@@ -3,29 +3,34 @@
   "version": "1.1.5",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "build:lib": "rollup -c",
     "docs:build": "vuepress build docs",
     "docs:serve": "vuepress dev docs",
-    "release": "node scripts/release.js",
-    "test:unit": "vue-cli-service test:unit"
+    "release": "node scripts/release.js"
   },
+  "main": "dist/vue-demo-box.common.js",
+  "files": [
+    "dist",
+    "types.d.ts"
+  ],
   "devDependencies": {
     "@laomao800/parse-size-with-unit": "^1.0.0",
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-unit-jest": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.0.5",
+    "@vue/cli-plugin-eslint": "^4.0.5",
+    "@vue/cli-plugin-unit-jest": "^4.0.5",
+    "@vue/cli-service": "^4.0.5",
     "@vue/eslint-config-prettier": "^5.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "autoprefixer": "^9.6.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "core-js": "^2.6.5",
+    "core-js": "^3.3.2",
     "element-ui": "^2.12.0",
     "eslint": "^5.16.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
     "execa": "^2.0.4",
     "inquirer": "^7.0.0",
@@ -45,23 +50,18 @@
   "bugs": {
     "url": "https://github.com/laomao800/vue-demo-box/issues"
   },
-  "files": [
-    "dist",
-    "types.d.ts"
-  ],
   "homepage": "https://github.com/laomao800/vue-demo-box",
   "keywords": [
     "vuepress",
     "demo"
   ],
   "license": "MIT",
-  "main": "dist/vue-demo-box.common.js",
-  "types": "types.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laomao800/vue-demo-box.git"
-  }
+  },
+  "types": "types.d.ts"
 }

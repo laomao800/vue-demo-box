@@ -1,20 +1,15 @@
-function _getBrowserRunableJS(script) {
-  const code = (script || '')
-    .replace(/export\s+default\s*/, 'var Main = ')
-    .trim()
-  return code
-    ? `${code}\n\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')`
-    : "new Vue().$mount('#app')"
-}
-
 /**
  * https://docs.jsfiddle.net/api/display-a-fiddle-from-post
  */
 export function goJsfiddle({ html, script, style }, { jsRes, cssRes }) {
   const htmlTpl = `<div id="app">\n${html}\n</div>`
   const jsTpl = _getBrowserRunableJS(script)
-  const resources = [...cssRes, ...getJsResFiles(jsRes)].join(',')
-  submitForm({
+  // prettier-ignore
+  const resources = [
+    ..._normalizeRes(cssRes),
+    ..._normalizeRes(jsRes)
+  ].join(',')
+  _submitForm({
     url: 'https://jsfiddle.net/api/post/library/pure/',
     data: {
       wrap: 'b',
@@ -36,10 +31,10 @@ export function goCodepen({ html, script, style }, { jsRes, cssRes }) {
     html: htmlTpl,
     js: jsTpl,
     css: style,
-    js_external: getJsResFiles(jsRes).join(';'),
-    css_external: cssRes.join(';')
+    js_external: _normalizeRes(jsRes).join(';'),
+    css_external: _normalizeRes(cssRes).join(';')
   }
-  submitForm({
+  _submitForm({
     url: 'https://codepen.io/pen/define/',
     data: {
       data: JSON.stringify(data)
@@ -47,7 +42,7 @@ export function goCodepen({ html, script, style }, { jsRes, cssRes }) {
   })
 }
 
-function submitForm({ url, data = {} }) {
+function _submitForm({ url, data = {} }) {
   const $form = document.createElement('form')
   $form.action = url
   $form.method = 'POST'
@@ -67,14 +62,15 @@ function submitForm({ url, data = {} }) {
   $form.submit()
 }
 
-function getJsResFiles(jsRes) {
-  const files = []
-  if (Array.isArray(jsRes)) {
-    jsRes.forEach(res => {
-      if (typeof res === 'string') {
-        files.push(res)
-      }
-    })
-  }
-  return files
+function _normalizeRes(res) {
+  return Array.isArray(res) ? res.filter(res => typeof res === 'string') : []
+}
+
+function _getBrowserRunableJS(script) {
+  const code = (script || '')
+    .replace(/export\s+default\s*/, 'var Main = ')
+    .trim()
+  return code
+    ? `${code}\n\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')`
+    : "new Vue().$mount('#app')"
 }
