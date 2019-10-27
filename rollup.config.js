@@ -24,7 +24,9 @@ const commonConfig = {
         postcssPlugins: [url({ url: 'inline' }), autoprefixer()]
       }
     }),
-    buble()
+    buble({
+      objectAssign: 'Object.assign'
+    })
   ]
 }
 
