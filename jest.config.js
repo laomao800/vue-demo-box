@@ -13,7 +13,7 @@ module.exports = {
   testMatch: [
     '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
   ],
-  collectCoverageFrom: ['src/**/*'],
+  collectCoverageFrom: ['src/**/*', '!src/index.js'],
   coverageDirectory: '<rootDir>/tests/unit/coverage',
   transformIgnorePatterns: ['/node_modules/(?!@babel)'],
   testURL: 'http://localhost/'
