@@ -4,7 +4,7 @@ node_js:
   - node
 
 script:
-  - npm run test:unit
+  - npm run test
 
 deploy:
   - provider: pages
