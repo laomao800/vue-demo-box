@@ -3,8 +3,16 @@ language: node_js
 node_js:
   - node
 
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - yarn global add codecov
+
 script:
-  - npm run test
+  - yarn test --coverage
+  - codecov --token=$CODECOV_TOKEN
 
 deploy:
   - provider: pages
@@ -18,4 +26,3 @@ deploy:
     api_key: $NPM_TOKEN
     on:
       tags: true
-      repo: laomao800/vue-demo-box
