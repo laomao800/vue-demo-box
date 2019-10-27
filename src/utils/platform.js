@@ -1,7 +1,7 @@
 /**
  * https://docs.jsfiddle.net/api/display-a-fiddle-from-post
  */
-export function goJsfiddle({ html, script, style }, { jsRes, cssRes }) {
+export function goJsfiddle({ html, script, style, jsRes, cssRes }) {
   const htmlTpl = `<div id="app">\n${html}\n</div>`
   const jsTpl = _getBrowserRunableJS(script)
   // prettier-ignore
@@ -24,7 +24,7 @@ export function goJsfiddle({ html, script, style }, { jsRes, cssRes }) {
 /**
  * https://blog.codepen.io/documentation/api/prefill/
  */
-export function goCodepen({ html, script, style }, { jsRes, cssRes }) {
+export function goCodepen({ html, script, style, jsRes, cssRes }) {
   const htmlTpl = `<div id="app">\n${html}\n</div>`
   const jsTpl = _getBrowserRunableJS(script)
   const data = {
@@ -60,6 +60,7 @@ function _submitForm({ url, data = {} }) {
   document.body.appendChild($form)
   $form.onsubmit = () => document.body.removeChild($form)
   $form.submit()
+  return $form
 }
 
 function _normalizeRes(res) {
@@ -67,10 +68,13 @@ function _normalizeRes(res) {
 }
 
 function _getBrowserRunableJS(script) {
-  const code = (script || '')
-    .replace(/export\s+default\s*/, 'var Main = ')
-    .trim()
-  return code
-    ? `${code}\n\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')`
-    : "new Vue().$mount('#app')"
+  const code = script || ''
+  const moduleReg = /export\s+default\s*/
+  if (moduleReg.test(code)) {
+    return (
+      code.replace(moduleReg, 'var Main = ').trim() +
+      `\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')`
+    )
+  }
+  return `${code.trim()}\nnew Vue().$mount('#app')`
 }

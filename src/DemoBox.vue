@@ -139,10 +139,16 @@ export default {
     jumpTo(platform) {
       switch (platform) {
         case 'jsfiddle':
-          goJsfiddle(this.codeSlice, this.finalRes)
+          goJsfiddle({
+            ...this.codeSlice,
+            ...this.finalRes
+          })
           break
         case 'codepen':
-          goCodepen(this.codeSlice, this.finalRes)
+          goCodepen({
+            ...this.codeSlice,
+            ...this.finalRes
+          })
           break
       }
     }
